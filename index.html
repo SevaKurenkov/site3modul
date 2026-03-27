@@ -1,13 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/sortable.js"></script>
 
+<body>
+    <section class="colomnsection">
+        <div class="economytext">
+            <div class="werybigtext">экономика растений</div>
+        </div>
+        <div class="firstsectionall">
+            <div class="firstsection1">
+                <div class="tagallbloks">
+                    <img src="./assets/images/flowers/flower1.svg" class="flower" data-js="flower1" alt="">
+                    <img src="./assets/images/flowers/flower2.svg" class="flower" data-js="flower2" alt="">
+                    <img src="./assets/images/flowers/flower3.svg" class="flower" data-js="flower3" alt="">
+                    <img src="./assets/images/flowers/flower4.svg" class="flower" data-js="flower4" alt="">
+                    <img src="./assets/images/flowers/flower5.svg" class="flower" data-js="flower5" alt="">
+                    <img src="./assets/images/flowers/flower6.svg" class="flower" data-js="flower6" alt="">
+                    <img src="./assets/images/flowers/flower1.svg" class="flower" data-js="flower1" alt="">
+                    <img src="./assets/images/flowers/flower2.svg" class="flower" data-js="flower2" alt="">
+                    <img src="./assets/images/flowers/flower3.svg" class="flower" data-js="flower3" alt="">
+                    <img src="./assets/images/flowers/flower4.svg" class="flower" data-js="flower4" alt="">
+                    <img src="./assets/images/flowers/flower5.svg" class="flower" data-js="flower5" alt="">
+                    <img src="./assets/images/flowers/flower6.svg" class="flower" data-js="flower6" alt="">
+                </div>
+                <div class="textblock">
+                    <div class="bigtext">собери все плитки</div>
+                </div>
+            </div>
+
+
+
+            <div class="firstsection2">
+                <div class="textblock">
+                    <div class="bigtext">нарисуй тюльпан</div>
+                </div>
+                <div class="paintfield" data-js="paintfield"></div>
+                <div class="paintblockinstruments">
+                    <div class="instruments">
+                        <img src="./assets/images/cursorcreon.svg" class="cursorcreon" data-js="cursorcreon" alt="">
+                        <div class="instrument2" data-js="instrument1"></div>
+                        <div class="instrument1" data-js="instrument2"></div>
+                        <div class="instrument3" data-js="instrument3"></div>
+                        <div class="instrument4" data-js="instrument4"></div>
+                    </div>
+                    <div class="colorsandpx">
+                        <div class="colors">
+                            <div class="color" style="background-color: #FF1B00;" data-js="color1"></div>
+                            <div class="color" style="background-color: #FFA500;" data-js="color2"></div>
+                            <div class="color" style="background-color: #FFFF00;" data-js="color3"></div>
+                            <div class="color" style="background-color: #00FF00;" data-js="color4"></div>
+                            <div class="color" style="background-color: #00FFFF;" data-js="color5"></div>
+                            <div class="color" style="background-color: #0000FF;" data-js="color6"></div>
+                            <div class="color" style="background-color: #800080;" data-js="color7"></div>
+                            <div class="color" style="background-color: #000000;" data-js="color8"></div>
+                        </div>
+                        <div class="px">
+                            <input class="pxels" type="range" data-js="pxels">
+                            <div class="pxtext" data-js="outfieldpx">100px</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="rowsection">
+        <div class="secondsection1">
+            <div class="textblock">
+                <div class="bigtext">выиграй большой<br>приз</div>
+            </div>
+            <div class="rounds">
+                <div class="round">
+                    <span class="num">12</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">7</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">25</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">3</span>
+                    <canvas></canvas>
+                </div>
+            </div>
+
+            <div class="rounds">
+                <div class="round">
+                    <span class="num">18</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">9</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">30</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">1</span>
+                    <canvas></canvas>
+                </div>
+            </div>
+            <div class="textblock">
+                <div class="bigtext">выигрышные<br>номера</div>
+            </div>
+            <div class="rounds">
+                <div class="round">
+                    <span class="num">7</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">25</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">99</span>
+                    <canvas></canvas>
+                </div>
+                <div class="round">
+                    <span class="num">3</span>
+                    <canvas></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="secondsection2">
+            <div class="secondsection2all">
+                <div class="textblock">
+                    <div class="bigtext">что же внутри?</div>
+                </div>
+                <div class="blockdelite" data-js="scratch">
+
+                    <div class="scratch-wrap">
+                        <div class="scratch-content">
+                            <div class="textblock" style="padding: 10px 20px;">
+                                <div class="smalltext">Кофейный цветок цветёт всего несколько дней.
+ Но его экономический эффект длится веками</div>
+                            </div>
+                        </div>
+                        <canvas class="scratch-canvas"></canvas>
+                    </div>
+                </div>
+
+
+                <div class="textblockdelite">
+                    <div class="bigtext">Стирай</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="rowsection">
+        <div class="thirdsection1">
+            <div class="textblock">
+                <div class="bigtext">cобери хлопок</div>
+            </div>
+            <div class="blokpazlxlopok">
+                <img src="./assets/images/хлопок25 1.svg" alt="">
+            </div>
+            <div class="xlopki">
+                <img src="./assets/images/Frame 2087327929.svg" class="xlopok" alt="">
+                <img src="./assets/images/Frame 2087327925.svg" class="xlopok" alt="">
+                <img src="./assets/images/Frame 2087327927.svg" class="xlopok" alt="">
+                <img src="./assets/images/Frame 2087327928.svg" class="xlopok" alt="">
+
+            </div>
+        </div>
+        <div class="thirdsection2">
+            <div class="sunfloverall" id="puzzle">
+                <img src="./assets/images/sunflowers/sunflower4.svg" class="sunflower" data-id="4">
+                <img src="./assets/images/sunflowers/sunflower8.svg" class="sunflower" data-id="8">
+                <img src="./assets/images/sunflowers/sunflower2.svg" class="sunflower" data-id="2">
+                <img src="./assets/images/sunflowers/sunflower10.svg" class="sunflower" data-id="10">
+                <img src="./assets/images/sunflowers/sunflower6.svg" class="sunflower" data-id="6">
+                <img src="./assets/images/sunflowers/sunflower12.svg" class="sunflower" data-id="12">
+                <img src="./assets/images/sunflowers/sunflower3.svg" class="sunflower" data-id="3">
+                <img src="./assets/images/sunflowers/sunflower11.svg" class="sunflower" data-id="11">
+                <img src="./assets/images/sunflowers/sunflower5.svg" class="sunflower" data-id="5">
+                <img src="./assets/images/sunflowers/sunflower1.svg" class="sunflower" data-id="1">
+                <img src="./assets/images/sunflowers/sunflower7.svg" class="sunflower" data-id="7">
+                <img src="./assets/images/sunflowers/sunflower9.svg" class="sunflower" data-id="9">
+            </div>
+            <div class="textblock">
+                <div class="bigtext">cобери подсолнух</div>
+            </div>
+        </div>
+    </section>
+    <section class="rowsection">
+        <div class="fourthsection1">
+            <div class="minifact">
+                <div class="textblockfact">мини факт №1</div>
+                <div class="smalltext">Листы чая стали причиной торговых реформ</div>
+            </div>
+            <div class="minifact">
+                <div class="textblockfact">мини факт №2</div>
+                <div class="smalltext">В некоторых странах экспорт кофе составляет значительную часть ВВП</div>
+            </div>
+            <div class="minifact">
+                <div class="textblockfact">мини факт №3</div>
+                <div class="smalltext">Шафран — пряность и пищевой краситель оранжевого цвета</div>
+            </div>
+        </div>
+        <div class="fourthsection2">
+            <div class="textblock">
+                <div class="bigtext">cчёт: 12544</div>
+            </div>
+            <div class="textblock">
+                <div class="bigtext">итоговый купон</div>
+            </div>
+            <div class="cuponbloc">
+                <div class="bigtext">Скидка 45%</div>
+                <div class="smalltext">
+
+В отличие 
+от зерновых, шафран 
+не требует масштабной механизации,
+но требует ручного труда, что создаёт рабочие места
+в сельских регионах</div>
+                <div class="bigtext">Куренков всеволод<br>Брицп251</div>
+            </div>
+            <div class="cuponbuttons">
+                <div class="cuponyesbutton">
+                    <div class="textblockcuponbutton">
+                        <div class="bigtext">Забрать</div>
+                    </div>
+                </div>
+                <div class="cuponnobutton">
+                    <div class="textblockcuponbutton">
+                        <div class="bigtext">другой</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="./js/script.js" defer></script>
 </body>
+
 </html>

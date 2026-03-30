@@ -68,30 +68,30 @@ document.addEventListener("DOMContentLoaded", () => {
     } //курсор
 
     {
-        let paintField = document.querySelector('[data-js="paintfield"]');
+        let paintfield = document.querySelector('[data-js="paintfield"]');
         let instrument1 = document.querySelector('[data-js="instrument1"]'); // карандаш квадрат
         let instrument2 = document.querySelector('[data-js="instrument2"]'); // карандаш круг
         let instrument3 = document.querySelector('[data-js="instrument3"]'); // ластик
         let instrument4 = document.querySelector('[data-js="instrument4"]'); // рефреш
         let colors = document.querySelectorAll('.color');
-        let pxSlider = document.querySelector('[data-js="pxels"]');
-        let pxOutput = document.querySelector('[data-js="outfieldpx"]');
+        let pxels = document.querySelector('[data-js="pxels"]');
+        let pxelsout = document.querySelector('[data-js="outfieldpx"]');
 
-        let isDrawing = false;
+        let isdrawing = false;
         let currentColor = '#000000';
         instrument1.addEventListener('click', () => currentTool = 'square');
         instrument2.addEventListener('click', () => currentTool = 'circle');
         instrument3.addEventListener('click', () => currentTool = 'eraser');
         let currentTool = 'square';
-        let brushSize = 20;
-        pxSlider.min = 5;
-        pxSlider.max = 100;
-        pxSlider.value = brushSize;
-        pxOutput.textContent = brushSize + 'px';
+        let brushsize = 20;
+        pxels.min = 5;
+        pxels.max = 100;
+        pxels.value = brushsize;
+        pxelsout.textContent = brushsize + 'px';
 
-        pxSlider.addEventListener('input', () => {
-            brushSize = pxSlider.value;
-            pxOutput.textContent = brushSize + 'px';
+        pxels.addEventListener('input', () => {
+            brushsize = pxels.value;
+            pxelsout.textContent = brushsize + 'px';
         });
 
         colors.forEach(color => {
@@ -101,23 +101,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         instrument4.addEventListener('click', () => {
-            paintField.innerHTML = '';
+            paintfield.innerHTML = '';
         });
 
-        paintField.addEventListener('mousedown', () => {
-            isDrawing = true
+        paintfield.addEventListener('mousedown', () => {
+            isdrawing = true
         });
-        paintField.addEventListener('mouseleave', () => {
-            isDrawing = false
+        paintfield.addEventListener('mouseleave', () => {
+            isdrawing = false
 
         });
         document.addEventListener('mouseup', () => {
-            isDrawing = false
+            isdrawing = false
         });
 
-        paintField.addEventListener('mousemove', (e) => {
-            if (!isDrawing) return;
-            let rect = paintField.getBoundingClientRect();
+        paintfield.addEventListener('mousemove', (e) => {
+            if (!isdrawing) return;
+            let rect = paintfield.getBoundingClientRect();
             let x = e.clientX - rect.left;
             let y = e.clientY - rect.top;
             draw(x, y);
@@ -126,10 +126,10 @@ document.addEventListener("DOMContentLoaded", () => {
         function draw(x, y) {
             let el = document.createElement('div');
             el.style.position = 'absolute';
-            el.style.left = x - brushSize / 2 + 'px';
-            el.style.top = y - brushSize / 2 + 'px';
-            el.style.width = brushSize + 'px';
-            el.style.height = brushSize + 'px';
+            el.style.left = x - brushsize / 2 + 'px';
+            el.style.top = y - brushsize / 2 + 'px';
+            el.style.width = brushsize + 'px';
+            el.style.height = brushsize + 'px';
             if (currentTool === 'square') {
                 el.style.backgroundColor = currentColor;
             }
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 el.style.backgroundColor = '#FFE9DC';
                 el.style.borderRadius = '1000px';
             }
-            paintField.appendChild(el);
+            paintfield.appendChild(el);
         }
     } //рисовалка
 

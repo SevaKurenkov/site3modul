@@ -76,27 +76,25 @@ document.addEventListener("DOMContentLoaded", () => {
         let colors = document.querySelectorAll('.color');
         let pxels = document.querySelector('[data-js="pxels"]');
         let pxelsout = document.querySelector('[data-js="outfieldpx"]');
-
-        let isdrawing = false;
-        let currentColor = '#000000';
+        let drawing = false;
+        let color = '#000000';
         instrument1.addEventListener('click', () => currentTool = 'square');
         instrument2.addEventListener('click', () => currentTool = 'circle');
         instrument3.addEventListener('click', () => currentTool = 'eraser');
         let currentTool = 'square';
-        let brushsize = 20;
+        let size = 20;
         pxels.min = 5;
         pxels.max = 100;
-        pxels.value = brushsize;
-        pxelsout.textContent = brushsize + 'px';
-
+        pxels.value = size;
+        pxelsout.textContent = size + 'px';
         pxels.addEventListener('input', () => {
-            brushsize = pxels.value;
-            pxelsout.textContent = brushsize + 'px';
+            size = pxels.value;
+            pxelsout.textContent = size + 'px';
         });
 
         colors.forEach(color => {
             color.addEventListener('click', () => {
-                currentColor = color.style.backgroundColor;
+                color = color.style.backgroundColor;
             });
         });
 
@@ -105,18 +103,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         paintfield.addEventListener('mousedown', () => {
-            isdrawing = true
+            drawing = true
         });
         paintfield.addEventListener('mouseleave', () => {
-            isdrawing = false
+            drawing = false
 
         });
         document.addEventListener('mouseup', () => {
-            isdrawing = false
+            drawing = false
         });
 
         paintfield.addEventListener('mousemove', (e) => {
-            if (!isdrawing) return;
+            if (!drawing) return;
             let rect = paintfield.getBoundingClientRect();
             let x = e.clientX - rect.left;
             let y = e.clientY - rect.top;
@@ -126,15 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
         function draw(x, y) {
             let el = document.createElement('div');
             el.style.position = 'absolute';
-            el.style.left = x - brushsize / 2 + 'px';
-            el.style.top = y - brushsize / 2 + 'px';
-            el.style.width = brushsize + 'px';
-            el.style.height = brushsize + 'px';
+            el.style.left = x - size / 2 + 'px';
+            el.style.top = y - size / 2 + 'px';
+            el.style.width = size + 'px';
+            el.style.height = size + 'px';
             if (currentTool === 'square') {
-                el.style.backgroundColor = currentColor;
+                el.style.backgroundColor = color;
             }
             if (currentTool === 'circle') {
-                el.style.backgroundColor = currentColor;
+                el.style.backgroundColor = color;
                 el.style.borderRadius = '1000px';
             }
             if (currentTool === 'eraser') {
@@ -218,18 +216,18 @@ document.addEventListener("DOMContentLoaded", () => {
         let container = document.querySelector('.thirdsection1');
         let items = document.querySelectorAll('.xlopok');
         items.forEach(item => {
-            let isDragging = false;
+            let dragging = false;
             let offsetX, offsetY;
 
             item.addEventListener('mousedown', (e) => {
-                isDragging = true;
+                dragging = true;
                 offsetX = e.clientX - item.getBoundingClientRect().left;
                 offsetY = e.clientY - item.getBoundingClientRect().top;
                 item.style.cursor = 'grabbing';
             });
 
             document.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
+                if (!dragging) return;
 
                 let containerRect = container.getBoundingClientRect();
                 let x = e.clientX - containerRect.left - offsetX;
@@ -243,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             document.addEventListener('mouseup', () => {
-                isDragging = false;
+                dragging = false;
                 item.style.cursor = 'grab';
             });
         });

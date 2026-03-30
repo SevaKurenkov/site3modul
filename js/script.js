@@ -242,7 +242,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             document.addEventListener('mouseup', () => {
                 dragging = false;
-                item.style.cursor = 'grab';
             });
         });
     } //хлопушек

@@ -496,6 +496,7 @@ body{
     position: absolute;
     cursor: grab;
     user-select: none;
+    cursor: grab;
 }
 
 .sunfloverall{

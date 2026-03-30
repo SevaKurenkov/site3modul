@@ -104,17 +104,22 @@ document.addEventListener("DOMContentLoaded", () => {
             paintField.innerHTML = '';
         });
 
-        paintField.addEventListener('mousedown', () => isDrawing = true);
-        paintField.addEventListener('mouseleave', () => isDrawing = false);
-        document.addEventListener('mouseup', () => isDrawing = false);
+        paintField.addEventListener('mousedown', () => {
+            isDrawing = true
+        });
+        paintField.addEventListener('mouseleave', () => {
+            isDrawing = false
+
+        });
+        document.addEventListener('mouseup', () => {
+            isDrawing = false
+        });
 
         paintField.addEventListener('mousemove', (e) => {
             if (!isDrawing) return;
-
             let rect = paintField.getBoundingClientRect();
             let x = e.clientX - rect.left;
             let y = e.clientY - rect.top;
-
             draw(x, y);
         });
 

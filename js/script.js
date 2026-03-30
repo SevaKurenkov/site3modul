@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     {
-        const flowers = document.querySelectorAll('.flower');
-        const modal1 = document.querySelectorAll('[data-js="modal1"]');
+        let flowers = document.querySelectorAll('.flower');
+        let modal1 = document.querySelectorAll('[data-js="modal1"]');
         let first = null;
         let second = null;
         let lock = false;
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 lock = true;
 
                 setTimeout(() => {
-                    const firstId = first.dataset.js;
-                    const secondId = second.dataset.js;
+                    let firstId = first.dataset.js;
+                    let secondId = second.dataset.js;
 
                     if (firstId == secondId) {
                         first = null;
@@ -47,15 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        if (matchedPairs == 6){
+        if (matchedPairs == 6) {
             modal1.style.visibility = 'block'
             console.log("отработало")
         }
     } // цветочки
 
     {
-        const cursor = document.querySelector('[data-js="cursorcreon"]');
-        const paintField = document.querySelector('[data-js="paintfield"]');
+        let cursor = document.querySelector('[data-js="cursorcreon"]');
+        let paintField = document.querySelector('[data-js="paintfield"]');
         paintField.addEventListener('mousemove', (e) => {
             cursor.style.display = 'block';
             cursor.style.left = e.clientX + 'px';
@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
     } //курсор
 
     {
-        const paintField = document.querySelector('[data-js="paintfield"]');
-        const instrument1 = document.querySelector('[data-js="instrument1"]'); // карандаш квадрат
-        const instrument2 = document.querySelector('[data-js="instrument2"]'); // карандаш круг
-        const instrument3 = document.querySelector('[data-js="instrument3"]'); // ластик
-        const instrument4 = document.querySelector('[data-js="instrument4"]'); // рефреш
-        const colors = document.querySelectorAll('.color');
-        const pxSlider = document.querySelector('[data-js="pxels"]');
-        const pxOutput = document.querySelector('[data-js="outfieldpx"]');
+        let paintField = document.querySelector('[data-js="paintfield"]');
+        let instrument1 = document.querySelector('[data-js="instrument1"]'); // карандаш квадрат
+        let instrument2 = document.querySelector('[data-js="instrument2"]'); // карандаш круг
+        let instrument3 = document.querySelector('[data-js="instrument3"]'); // ластик
+        let instrument4 = document.querySelector('[data-js="instrument4"]'); // рефреш
+        let colors = document.querySelectorAll('.color');
+        let pxSlider = document.querySelector('[data-js="pxels"]');
+        let pxOutput = document.querySelector('[data-js="outfieldpx"]');
 
         let isDrawing = false;
         let currentColor = '#000000';
@@ -111,15 +111,15 @@ document.addEventListener("DOMContentLoaded", () => {
         paintField.addEventListener('mousemove', (e) => {
             if (!isDrawing) return;
 
-            const rect = paintField.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            let rect = paintField.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
 
             draw(x, y);
         });
 
         function draw(x, y) {
-            const el = document.createElement('div');
+            let el = document.createElement('div');
             el.style.position = 'absolute';
             el.style.left = x - brushSize / 2 + 'px';
             el.style.top = y - brushSize / 2 + 'px';
@@ -141,13 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } //рисовалка
 
     {
-        const rounds = document.querySelectorAll('.round');
+        let rounds = document.querySelectorAll('.round');
 
         rounds.forEach(round => {
-            const canvas = round.querySelector('canvas');
-            const ctx = canvas.getContext('2d');
+            let canvas = round.querySelector('canvas');
+            let ctx = canvas.getContext('2d');
 
-            const size = 130;
+            let size = 130;
 
             canvas.width = size;
             canvas.height = size;
@@ -164,9 +164,9 @@ document.addEventListener("DOMContentLoaded", () => {
             canvas.addEventListener('mousemove', (e) => {
                 if (!isDrawing) return;
 
-                const rect = canvas.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                let rect = canvas.getBoundingClientRect();
+                let x = e.clientX - rect.left;
+                let y = e.clientY - rect.top;
 
                 ctx.beginPath();
                 ctx.arc(x, y, 15, 0, Math.PI * 2);
@@ -176,10 +176,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } //стирание додепа
 
     {
-        const scratch = document.querySelector('[data-js="scratch"]');
-        const canvas = scratch.querySelector('.scratch-canvas');
-        const ctx = canvas.getContext('2d');
-        const rect = scratch.getBoundingClientRect();
+        let scratch = document.querySelector('[data-js="scratch"]');
+        let canvas = scratch.querySelector('.scratch-canvas');
+        let ctx = canvas.getContext('2d');
+        let rect = scratch.getBoundingClientRect();
         canvas.width = rect.width;
         canvas.height = rect.height;
         ctx.fillStyle = '#FD5A47';
@@ -193,9 +193,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         canvas.addEventListener('mousemove', (e) => {
             if (!isDrawing) return;
-            const r = canvas.getBoundingClientRect();
-            const x = e.clientX - r.left;
-            const y = e.clientY - r.top;
+            let r = canvas.getBoundingClientRect();
+            let x = e.clientX - r.left;
+            let y = e.clientY - r.top;
             ctx.beginPath();
             ctx.arc(x, y, 30, 0, Math.PI * 2);
             ctx.fill();
@@ -227,15 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!isDragging) return;
 
                 let containerRect = container.getBoundingClientRect();
-
                 let x = e.clientX - containerRect.left - offsetX;
                 let y = e.clientY - containerRect.top - offsetY;
-                const maxX = container.clientWidth - item.offsetWidth;
-                const maxY = container.clientHeight - item.offsetHeight;
-
+                let maxX = container.clientWidth - item.offsetWidth;
+                let maxY = container.clientHeight - item.offsetHeight;
                 x = Math.max(0, Math.min(x, maxX));
                 y = Math.max(0, Math.min(y, maxY));
-
                 item.style.left = x + 'px';
                 item.style.top = y + 'px';
             });
